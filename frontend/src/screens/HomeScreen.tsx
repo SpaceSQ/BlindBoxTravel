@@ -14,11 +14,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useTranslation } from "react-i18next";
 
-import { ApiError, DISTANCE_OPTIONS_MI, recommendSpots, type DistanceMi, type Origin } from "../api";
+import { ApiError, DISTANCE_OPTIONS_MI, type DistanceMi, type Origin } from "../api";
+import { LanguageSetting } from "../components/LanguageSetting";
+import { LocalModelCard } from "../components/LocalModelCard";
+import { MuseChips } from "../components/MuseChips";
 import { errorMessage, useToast } from "../components/Toast";
 import { DEFAULT_ORIGIN } from "../config";
+import { localLLMProvider } from "../localLlm/provider";
+import { MUSE_PROMPTS, rememberMuseContext } from "../musePrompts";
 import { ensureLocationNotice } from "../locationConsent";
-import type { ExploreStackParamList } from "../navigation/types";
+import type { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+
+import type { ExploreStackParamList, RootTabParamList } from "../navigation/types";
 import { theme } from "../theme";
 
 type Props = NativeStackScreenProps<ExploreStackParamList, "Home">;
@@ -32,6 +39,7 @@ export function HomeScreen({ navigation }: Props) {
   const [usingDefault, setUsingDefault] = useState(true);
   const [locating, setLocating] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [armedId, setArmedId] = useState<string | null>(null);
   const told = useRef(false);
 
   useEffect(() => {
@@ -110,8 +118,8 @@ export function HomeScreen({ navigation }: Props) {
     };
   }, [showToast, t]);
 
-  async function explore() {
-    const text = query.trim();
+  async function explore(nextQuery = query, nextDistance = distance) {
+    const text = nextQuery.trim();
     if (!text) {
       showToast(t("home.emptyQuery"));
       return;
@@ -121,16 +129,16 @@ export function HomeScreen({ navigation }: Props) {
     }
     setLoading(true);
     try {
-      const result = await recommendSpots({
+      const result = await localLLMProvider.complete({
         query: text,
         origin,
-        maxDistanceMi: distance,
+        maxDistanceMi: nextDistance,
       });
       navigation.navigate("List", {
-        spots: result.spots,
+        spots: result.response.spots,
         origin,
         query: text,
-        maxDistanceMi: result.max_distance_mi,
+        maxDistanceMi: result.response.max_distance_mi,
       });
     } catch (error) {
       showToast(error instanceof ApiError ? error.message : errorMessage(error));
@@ -144,10 +152,39 @@ export function HomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-        <Text style={styles.kicker}>{t("home.kicker")}</Text>
+        <View style={styles.topRow}>
+          <Text style={styles.kicker}>{t("home.kicker")}</Text>
+          <LanguageSetting compact />
+        </View>
         <Text style={styles.title}>{t("home.title")}</Text>
         <Text style={styles.lead}>{t("home.lead")}</Text>
 
+        <Text style={styles.label}>{t("home.museTitle")}</Text>
+        <Text style={styles.museLead}>{t("home.museLead")}</Text>
+        <MuseChips
+          items={MUSE_PROMPTS.map((item) => ({ id: item.id, label: t(item.promptKey) }))}
+          selectedId={armedId}
+          onPress={(id) => {
+            const prompt = MUSE_PROMPTS.find((item) => item.id === id);
+            if (!prompt) {
+              return;
+            }
+            const phrase = t(prompt.promptKey);
+            if (prompt.distance) {
+              setDistance(prompt.distance);
+            }
+            rememberMuseContext(prompt);
+            if (armedId === id) {
+              void explore(query.trim() ? query : phrase, prompt.distance ?? distance);
+              return;
+            }
+            setArmedId(id);
+            setQuery(phrase);
+          }}
+        />
+        <Text style={styles.hint}>{t("home.chipHint")}</Text>
+        <Text style={styles.hint}>{t("home.chipSwipe")}</Text>
+        <Text style={styles.hint}>{t("home.mileNote")}</Text>
         <Text style={styles.label}>{t("home.promptLabel")}</Text>
         <TextInput
           value={query}
@@ -195,6 +232,10 @@ export function HomeScreen({ navigation }: Props) {
         >
           <Text style={styles.radarText}>{t("home.radar")}</Text>
         </Pressable>
+        <LocalModelCard
+          compact
+          onOpenSettings={() => navigation.getParent<BottomTabNavigationProp<RootTabParamList>>()?.navigate("Account")}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -210,11 +251,25 @@ const styles = StyleSheet.create({
     paddingTop: 28,
     paddingBottom: 40,
   },
+  topRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+  },
   kicker: {
     color: theme.accent,
     fontSize: 12,
     fontWeight: "700",
     letterSpacing: 1.4,
+    flexShrink: 1,
+  },
+  hint: {
+    marginTop: 8,
+    color: theme.muted,
+    fontSize: 13,
+    lineHeight: 18,
   },
   title: {
     marginTop: 10,
@@ -228,6 +283,13 @@ const styles = StyleSheet.create({
     color: theme.muted,
     fontSize: 16,
     lineHeight: 24,
+  },
+  museLead: {
+    marginTop: -4,
+    marginBottom: 10,
+    color: theme.muted,
+    fontSize: 14,
+    lineHeight: 20,
   },
   label: {
     marginTop: 28,
