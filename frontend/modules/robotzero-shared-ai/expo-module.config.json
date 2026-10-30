@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android"],
+  "apple": {
+    "modules": ["RobotZeroSharedAIModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.robotzerosharedai.RobotZeroSharedAIModule"]
+  }
+}

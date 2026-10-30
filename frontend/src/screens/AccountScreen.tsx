@@ -7,41 +7,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { deleteAccount, fetchAccount, updateNickname, type PurchaseRecord, type VipPlanCode } from "../api";
 import { useAuth } from "../auth";
 import { AgreementModal, type AgreementDoc } from "../components/Agreements";
+import { LanguageSetting } from "../components/LanguageSetting";
+import { LocalModelCard } from "../components/LocalModelCard";
 import { PaywallModal } from "../components/PaywallModal";
 import { errorMessage, useToast } from "../components/Toast";
 import { PurchaseCancelled, VIP_OFFERS, completeVipPurchase } from "../purchases";
-import { appLanguage, setAppLanguage, type AppLanguage } from "../i18n";
 import { theme } from "../theme";
-
-function LanguageSetting() {
-  const { t, i18n } = useTranslation();
-  const current = appLanguage(i18n.language);
-  function choose(language: AppLanguage) {
-    void setAppLanguage(language);
-  }
-  return (
-    <View>
-      <Text style={styles.label}>{t("account.language")}</Text>
-      <View style={styles.switch}>
-        {(["en-US", "zh-CN"] as const).map((language) => {
-          const selected = current === language;
-          const label = language === "en-US" ? t("account.languageEn") : t("account.languageZh");
-          return (
-            <Pressable
-              key={language}
-              onPress={() => choose(language)}
-              style={[styles.switchItem, selected && styles.switchOn]}
-              accessibilityRole="button"
-              accessibilityState={{ selected }}
-            >
-              <Text style={[styles.switchText, selected && styles.switchTextOn]}>{label}</Text>
-            </Pressable>
-          );
-        })}
-      </View>
-    </View>
-  );
-}
 
 export function AccountScreen() {
   const { t } = useTranslation();
@@ -196,6 +167,7 @@ export function AccountScreen() {
           <Text style={styles.title}>{t("account.title")}</Text>
           <Text style={styles.lead}>{t("account.appleLead")}</Text>
           <LanguageSetting />
+          <LocalModelCard />
           <Pressable
             onPress={() => {
               void apple();
@@ -263,6 +235,7 @@ export function AccountScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         <Text style={styles.title}>{t("account.title")}</Text>
         <LanguageSetting />
+        <LocalModelCard />
         <Text style={styles.phone}>{signedInLabel()}</Text>
         <Text style={styles.quota}>
           {t("account.quota", { used: Math.min(user.unlock_count, user.unlock_limit), limit: user.unlock_limit })}
@@ -389,18 +362,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.card,
   },
   secondaryText: { color: theme.ink, fontWeight: "600" },
-  switch: { flexDirection: "row", gap: 8 },
-  switchItem: {
-    borderRadius: 999,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    backgroundColor: theme.card,
-    borderWidth: 1,
-    borderColor: theme.line,
-  },
-  switchOn: { backgroundColor: theme.ink, borderColor: theme.ink },
-  switchText: { color: theme.ink, fontWeight: "600" },
-  switchTextOn: { color: theme.white },
   apple: {
     height: 52,
     borderRadius: 8,

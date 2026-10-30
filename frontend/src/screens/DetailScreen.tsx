@@ -23,6 +23,7 @@ import {
   fetchReviews,
   fetchSpot,
   isUnlockedSpot,
+  sharePlan,
   unlockSpot,
   type HeatDate,
   type PublicSpot,
@@ -37,14 +38,16 @@ import { TagRow } from "../components/TagRow";
 import { PaywallModal } from "../components/PaywallModal";
 import { TimeCapsuleSection } from "../components/TimeCapsuleSection";
 import { todayString, TripPlanForm, type TripPlanValues } from "../components/TripPlanForm";
+import { TripShareSheet } from "../components/TripShareSheet";
 import { errorMessage, useToast } from "../components/Toast";
 import i18n from "../i18n";
 import type { ExploreStackParamList } from "../navigation/types";
 import { tagLabel } from "../tagLabel";
 import { openDirections } from "../maps";
+import { peekMuseContext } from "../musePrompts";
 import { shareInvite, shareStoryImage } from "../sharing";
 import { theme } from "../theme";
-import { formatMiles } from "../units";
+import { formatMiles, transportKey } from "../units";
 
 type Props = NativeStackScreenProps<ExploreStackParamList, "Detail">;
 
@@ -94,7 +97,12 @@ export function DetailScreen({ route }: Props) {
   const [heat, setHeat] = useState<HeatDate[]>([]);
   const [paywall, setPaywall] = useState(false);
   const [sharingStory, setSharingStory] = useState(false);
+  const [planId, setPlanId] = useState<number | null>(null);
+  const [planSummary, setPlanSummary] = useState<TripPlanValues | null>(null);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareToken, setShareToken] = useState("");
   const posterRef = useRef<View>(null);
+  const museContext = peekMuseContext();
 
   const scale = useRef(new Animated.Value(1)).current;
   const shake = useRef(new Animated.Value(0)).current;
@@ -238,6 +246,8 @@ export function DetailScreen({ route }: Props) {
         itinerary: values.itinerary,
       });
       setFormOpen(false);
+      setPlanId(result.plan_id);
+      setPlanSummary(values);
       playReveal(result.spot, result.unlock_token);
     } catch (error) {
       if (error instanceof ApiError && error.status === 402) {
@@ -278,6 +288,19 @@ export function DetailScreen({ route }: Props) {
     }
     try {
       await shareInvite({ spotId: spot.spot_id, distance: spot.distance_mi });
+    } catch (error) {
+      showToast(errorMessage(error));
+    }
+  }
+
+  async function openTripShare() {
+    if (!planId) {
+      return;
+    }
+    try {
+      const result = await sharePlan(planId);
+      setShareToken(result.share_token);
+      setShareOpen(true);
     } catch (error) {
       showToast(errorMessage(error));
     }
@@ -433,6 +456,12 @@ export function DetailScreen({ route }: Props) {
               <Text style={styles.directionsText}>{t("detail.directions")}</Text>
             </Pressable>
           ) : null}
+          {revealed && planId ? (
+            <Pressable onPress={() => void openTripShare()} style={styles.directions} accessibilityRole="button">
+              <Ionicons name="share-outline" size={18} color={theme.ink} />
+              <Text style={styles.directionsText}>{t("trips.share")}</Text>
+            </Pressable>
+          ) : null}
           {revealed ? null : (
             <Pressable onPress={() => void sendInvite()} style={styles.coUnlock} accessibilityRole="button">
               <Ionicons name="paper-plane-outline" size={18} color={theme.ink} />
@@ -475,7 +504,13 @@ export function DetailScreen({ route }: Props) {
           <ScrollView style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, 20), maxHeight: "85%" }]}>
             <TripPlanForm
               title={t("detail.formTitle")}
-              initial={{ departDate: todayString(), days: 1, companions: 1, transport: "自驾", itinerary: "" }}
+              initial={{
+                departDate: todayString(),
+                days: museContext.days ?? 1,
+                companions: museContext.companions ?? 1,
+                transport: "自驾",
+                itinerary: "",
+              }}
               submitting={submitting}
               submitLabel={t("detail.unlock")}
               onSubmit={(values) => {
@@ -486,6 +521,25 @@ export function DetailScreen({ route }: Props) {
         </View>
       </Modal>
       <PaywallModal visible={paywall} onClose={() => setPaywall(false)} />
+      <TripShareSheet
+        visible={shareOpen}
+        place={isUnlockedSpot(spot) ? `${spot.city}, ${spot.province}` : spot.display_name}
+        lines={
+          planSummary
+            ? [
+                isUnlockedSpot(spot) ? spot.full_name : spot.display_name,
+                t("trips.summary", {
+                  date: planSummary.departDate,
+                  daysLabel: t("tripForm.dayCount", { count: planSummary.days }),
+                  peopleLabel: t("tripForm.peopleCount", { count: planSummary.companions }),
+                  transport: t(transportKey(planSummary.transport)),
+                }),
+              ]
+            : [isUnlockedSpot(spot) ? spot.full_name : spot.display_name]
+        }
+        token={shareToken}
+        onClose={() => setShareOpen(false)}
+      />
       <View pointerEvents="none" style={styles.offscreen}>
         <StoryPoster
           ref={posterRef}

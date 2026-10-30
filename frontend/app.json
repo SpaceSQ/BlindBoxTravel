@@ -22,7 +22,12 @@
         "NSLocalNetworkUsageDescription": "Mystery Getaway uses the local network to reach the travel service on your computer.",
         "NSAppTransportSecurity": {
           "NSAllowsLocalNetworking": true
-        }
+        },
+        "LSApplicationQueriesSchemes": ["weixin", "whatsapp", "instagram-stories", "sms"],
+        "RobotZeroSharedAIGroup": "group.com.robotzero.shared.ai"
+      },
+      "entitlements": {
+        "com.apple.security.application-groups": ["group.com.robotzero.shared.ai"]
       }
     },
     "android": {
@@ -66,6 +71,7 @@
       ],
       "expo-sharing",
       "expo-web-browser",
+      "./plugins/withRobotZeroSharedAI",
       [
         "expo-build-properties",
         {

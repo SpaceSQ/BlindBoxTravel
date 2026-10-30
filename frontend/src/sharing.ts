@@ -1,4 +1,5 @@
 import { Linking, Platform, Share, type View } from "react-native";
+import * as Clipboard from "expo-clipboard";
 import * as Sharing from "expo-sharing";
 import { captureRef } from "react-native-view-shot";
 
@@ -44,6 +45,20 @@ export function xPostUrl(text: string): string {
 
 export function facebookPostUrl(url: string): string {
   return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+}
+
+export async function shareToWeChat(message: string): Promise<boolean> {
+  await Clipboard.setStringAsync(message);
+  try {
+    const canOpen = await Linking.canOpenURL("weixin://");
+    if (!canOpen) {
+      return false;
+    }
+    await Linking.openURL("weixin://");
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function openExternal(url: string): Promise<void> {

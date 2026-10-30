@@ -2,7 +2,9 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useMemo, useState } from "react";
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
+import { MuseChips } from "./MuseChips";
 import { useToast } from "./Toast";
+import { ITINERARY_PROMPTS } from "../musePrompts";
 import { theme } from "../theme";
 import { transportKey } from "../units";
 
@@ -211,6 +213,16 @@ export function TripPlanForm({ title, initial, submitting, submitLabel, onSubmit
       <Text style={styles.note}>{t("tripForm.note")}</Text>
 
       <Text style={styles.fieldLabel}>{t("tripForm.itinerary")}</Text>
+      <MuseChips
+        items={ITINERARY_PROMPTS.map((item) => ({ id: item.id, label: t(item.promptKey) }))}
+        onPress={(id) => {
+          const prompt = ITINERARY_PROMPTS.find((item) => item.id === id);
+          if (!prompt) {
+            return;
+          }
+          setItinerary(t(prompt.promptKey).slice(0, 500));
+        }}
+      />
       <TextInput
         value={itinerary}
         onChangeText={(value) => setItinerary(value.slice(0, 500))}

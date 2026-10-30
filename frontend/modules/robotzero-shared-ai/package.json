@@ -1,0 +1,14 @@
+{
+  "name": "robotzero-shared-ai",
+  "version": "1.0.0",
+  "description": "Resolves the RobotZero shared AI container for Mystery Getaway.",
+  "main": "index.ts",
+  "license": "UNLICENSED",
+  "author": "Mystery Getaway",
+  "homepage": "https://github.com/SpaceSQ/BlindBoxTravel",
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  }
+}
