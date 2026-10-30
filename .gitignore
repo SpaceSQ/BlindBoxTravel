@@ -1,0 +1,40 @@
+# Root / workspace
+.DS_Store
+**/.DS_Store
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.sqlite
+*.sqlite-journal
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+**/.env
+!**/.env.example
+
+# Logs / checkpoints / local caches
+*.log
+.expo/
+dist/
+web-build/
+.metro-health-check*
+*.tsbuildinfo
+
+# Native build artifacts (Expo may regenerate ios/android)
+frontend/ios/Pods/
+frontend/ios/build/
+frontend/android/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp

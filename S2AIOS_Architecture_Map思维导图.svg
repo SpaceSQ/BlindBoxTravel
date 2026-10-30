@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 1560" width="100%" role="img" aria-labelledby="title desc">
+  <title id="title">S2 AIOS 系统架构与生命关系思维导图</title>
+  <desc id="desc">中心是独占常驻的 S2 AIOS。左侧是碳基生命、硅基生命和第三方 AIgent，右侧是空间地址、核心服务、进入方式和物理法则。底部五条是它们之间的交互。</desc>
+  <style>
+    .bg { fill: #f4f1ea; }
+    .ink { fill: #1a1814; }
+    .muted { fill: #5e584e; }
+    .node { fill: #fffcf7; }
+    .center { fill: #1a1814; }
+    .center-text { fill: #f7f4ee; }
+    .leaf { font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", sans-serif; font-size: 16px; }
+    .branch { font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", sans-serif; font-size: 18px; font-weight: 500; }
+    .small { font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", sans-serif; font-size: 14px; }
+    .tiny { font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", sans-serif; font-size: 13px; }
+  </style>
+  <rect class="bg" width="2200" height="1560"/>
+  <g fill="none" stroke-width="2" stroke-linecap="round">
+    <path stroke="#1f6b4a" d="M488 72 V328 M468 72 H488 M468 136 H488 M468 200 H500 M468 264 H488 M468 328 H488"/>
+    <path stroke="#1f6b4a" d="M750 200 C830 200 860 740 910 740"/>
+    <path stroke="#1d4e89" d="M488 470 V726 M468 470 H488 M468 534 H488 M468 598 H500 M468 662 H488 M468 726 H488"/>
+    <path stroke="#1d4e89" d="M750 598 C840 598 860 780 910 780"/>
+    <path stroke="#6a4a2a" d="M488 900 V1092 M468 900 H488 M468 964 H488 M468 1028 H500 M468 1092 H488"/>
+    <path stroke="#6a4a2a" d="M750 1028 C840 1028 860 820 910 820"/>
+    <path stroke="#8a5a12" d="M1712 72 V264 M1732 72 H1712 M1732 136 H1712 M1732 200 H1700 M1732 264 H1712"/>
+    <path stroke="#8a5a12" d="M1450 200 C1360 200 1340 720 1290 720"/>
+    <path stroke="#7a3148" d="M1712 430 V622 M1732 430 H1712 M1732 494 H1712 M1732 558 H1700 M1732 622 H1712"/>
+    <path stroke="#7a3148" d="M1450 558 C1360 558 1340 760 1290 760"/>
+    <path stroke="#2c4a6e" d="M1712 760 V952 M1732 760 H1712 M1732 824 H1700 M1732 888 H1712 M1732 952 H1712"/>
+    <path stroke="#2c4a6e" d="M1450 824 C1360 824 1340 800 1290 800"/>
+    <path stroke="#8b2e2e" d="M1712 1090 V1282 M1732 1090 H1712 M1732 1154 H1712 M1732 1218 H1700 M1732 1282 H1712"/>
+    <path stroke="#8b2e2e" d="M1450 1218 C1340 1218 1340 840 1290 840"/>
+  </g>
+  <g>
+    <rect class="center" x="910" y="660" width="380" height="200" rx="28"/>
+    <text class="center-text" x="1100" y="724" text-anchor="middle" style="font-family: PingFang SC, Noto Sans SC, sans-serif; font-size: 32px; font-weight: 500;">S2 AIOS</text>
+    <text class="center-text" x="1100" y="762" text-anchor="middle" style="font-family: PingFang SC, Noto Sans SC, sans-serif; font-size: 18px;">具境 · TwinStar</text>
+    <text class="center-text" x="1100" y="798" text-anchor="middle" style="font-family: PingFang SC, Noto Sans SC, sans-serif; font-size: 15px;">碳基感知，硅基致动</text>
+    <text class="center-text" x="1100" y="826" text-anchor="middle" style="font-family: PingFang SC, Noto Sans SC, sans-serif; font-size: 14px; fill: #d9d3c7;">独占常驻的空间主机</text>
+  </g>
+  <g>
+    <rect class="node" x="500" y="172" width="250" height="56" rx="14" stroke="#1f6b4a" stroke-width="2"/>
+    <text class="branch ink" x="625" y="206" text-anchor="middle">碳基生命</text>
+    <rect class="node" x="48" y="48" width="420" height="48" rx="12" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="78">人类 · 阶级 R · 主权心跳</text>
+    <rect class="node" x="48" y="112" width="420" height="48" rx="12" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="142">首次只填 L2、L3、L4 与 Wi-Fi 密码</text>
+    <rect class="node" x="48" y="176" width="420" height="48" rx="12" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="206">宠物 · 活力、勇气、食欲、智力、依恋</text>
+    <rect class="node" x="48" y="240" width="420" height="48" rx="12" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="270">心率、呼吸、宠物体征写入分钟档案</text>
+    <rect class="node" x="48" y="304" width="420" height="48" rx="12" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="334">五特质每日结算，不授予致动权</text>
+  </g>
+  <g>
+    <rect class="node" x="500" y="570" width="250" height="56" rx="14" stroke="#1d4e89" stroke-width="2"/>
+    <text class="branch ink" x="625" y="604" text-anchor="middle">硅基生命</text>
+    <rect class="node" x="48" y="446" width="420" height="48" rx="12" stroke="#1d4e89" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="476">D 数字人 · 只坐 01 王座 · 5 分钟心跳</text>
+    <rect class="node" x="48" y="510" width="420" height="48" rx="12" stroke="#1d4e89" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="540">A 品牌化身 · 属性 BRAND · 也可坐王座</text>
+    <rect class="node" x="48" y="574" width="420" height="48" rx="12" stroke="#1d4e89" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="604">V 家臣 · 本宅孵化 · 工位 2–9</text>
+    <rect class="node" x="48" y="638" width="420" height="48" rx="12" stroke="#1d4e89" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="668">I 野生智能体 · 属性 DCARD · 客栈 09</text>
+    <rect class="node" x="48" y="702" width="420" height="48" rx="12" stroke="#1d4e89" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="732">E 具身机器人 · 发现时抹掉自报座位</text>
+  </g>
+  <g>
+    <rect class="node" x="500" y="1000" width="250" height="56" rx="14" stroke="#6a4a2a" stroke-width="2"/>
+    <text class="branch ink" x="625" y="1034" text-anchor="middle">第三方 AIgent</text>
+    <rect class="node" x="48" y="876" width="420" height="48" rx="12" stroke="#6a4a2a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="906">文件、图片、视频</text>
+    <rect class="node" x="48" y="940" width="420" height="48" rx="12" stroke="#6a4a2a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="970">事务、游戏</text>
+    <rect class="node" x="48" y="1004" width="420" height="48" rx="12" stroke="#6a4a2a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="1034">向 01 号申请权限与存储空间</text>
+    <rect class="node" x="48" y="1068" width="420" height="48" rx="12" stroke="#6a4a2a" stroke-width="1.5"/>
+    <text class="leaf ink" x="68" y="1098">SpaceSkill 沙盒 · 先声明读轴与动轴</text>
+  </g>
+  <g>
+    <rect class="node" x="1450" y="172" width="250" height="56" rx="14" stroke="#8a5a12" stroke-width="2"/>
+    <text class="branch ink" x="1575" y="206" text-anchor="middle">空间与地址</text>
+    <rect class="node" x="1732" y="48" width="420" height="48" rx="12" stroke="#8a5a12" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="78">SITE · L2 · L3 · L4 · ROOM · 格</text>
+    <rect class="node" x="1732" y="112" width="420" height="48" rx="12" stroke="#8a5a12" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="142">01 王座 · 02–08 工位 · 09 客栈</text>
+    <rect class="node" x="1732" y="176" width="420" height="48" rx="12" stroke="#8a5a12" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="206">标准格 2 m × 2 m × 2.4 m</text>
+    <rect class="node" x="1732" y="240" width="420" height="48" rx="12" stroke="#8a5a12" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="270">房间组合若形成孤岛，底层驳回</text>
+  </g>
+  <g>
+    <rect class="node" x="1450" y="530" width="250" height="56" rx="14" stroke="#7a3148" stroke-width="2"/>
+    <text class="branch ink" x="1575" y="564" text-anchor="middle">核心服务</text>
+    <rect class="node" x="1732" y="406" width="420" height="48" rx="12" stroke="#7a3148" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="436">地址与身份认证</text>
+    <rect class="node" x="1732" y="470" width="420" height="48" rx="12" stroke="#7a3148" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="500">数字人管理 · 人格漂移则回滚</text>
+    <rect class="node" x="1732" y="534" width="420" height="48" rx="12" stroke="#7a3148" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="564">智能体服务 · 派发、监督、授权</text>
+    <rect class="node" x="1732" y="598" width="420" height="48" rx="12" stroke="#7a3148" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="628">认知走本机环回，或 https 在线模型</text>
+  </g>
+  <g>
+    <rect class="node" x="1450" y="796" width="250" height="56" rx="14" stroke="#2c4a6e" stroke-width="2"/>
+    <text class="branch ink" x="1575" y="830" text-anchor="middle">人如何进入</text>
+    <rect class="node" x="1732" y="736" width="420" height="48" rx="12" stroke="#2c4a6e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="766">创世页签发人类 R 与王座 D</text>
+    <rect class="node" x="1732" y="800" width="420" height="48" rx="12" stroke="#2c4a6e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="830">屏幕全屏进入驾驶舱</text>
+    <rect class="node" x="1732" y="864" width="420" height="48" rx="12" stroke="#2c4a6e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="894">手机 App · 总览、设置、授权、任务</text>
+    <rect class="node" x="1732" y="928" width="420" height="48" rx="12" stroke="#2c4a6e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="958">原生桌面另开，主机服务继续运行</text>
+  </g>
+  <g>
+    <rect class="node" x="1450" y="1190" width="250" height="56" rx="14" stroke="#8b2e2e" stroke-width="2"/>
+    <text class="branch ink" x="1575" y="1224" text-anchor="middle">法则与记忆</text>
+    <rect class="node" x="1732" y="1066" width="420" height="48" rx="12" stroke="#8b2e2e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="1096">三定律：失效安全、生命优先、认知主权</text>
+    <rect class="node" x="1732" y="1130" width="420" height="48" rx="12" stroke="#8b2e2e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="1160">TrustZone · 强电保持失电</text>
+    <rect class="node" x="1732" y="1194" width="420" height="48" rx="12" stroke="#8b2e2e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="1224">14 维物理场 · 六显轴加八隐轴</text>
+    <rect class="node" x="1732" y="1258" width="420" height="48" rx="12" stroke="#8b2e2e" stroke-width="1.5"/>
+    <text class="leaf ink" x="1752" y="1288">彩虹桥访客进 09，并写入分钟档案</text>
+  </g>
+  <g>
+    <text class="small muted" x="48" y="1372">交互</text>
+    <rect class="node" x="100" y="1348" width="390" height="40" rx="20" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="tiny ink" x="295" y="1374" text-anchor="middle">人 → 01 号：自然语言下令与授权</text>
+    <rect class="node" x="506" y="1348" width="360" height="40" rx="20" stroke="#1d4e89" stroke-width="1.5"/>
+    <text class="tiny ink" x="686" y="1374" text-anchor="middle">01 号 → 2–9：派发并监督</text>
+    <rect class="node" x="882" y="1348" width="400" height="40" rx="20" stroke="#6a4a2a" stroke-width="1.5"/>
+    <text class="tiny ink" x="1082" y="1374" text-anchor="middle">第三方 → 01 号：申请权限与存储</text>
+    <rect class="node" x="1298" y="1348" width="390" height="40" rx="20" stroke="#1f6b4a" stroke-width="1.5"/>
+    <text class="tiny ink" x="1493" y="1374" text-anchor="middle">宠物 → 档案：被感知，不致动</text>
+    <rect class="node" x="1704" y="1348" width="448" height="40" rx="20" stroke="#8b2e2e" stroke-width="1.5"/>
+    <text class="tiny ink" x="1928" y="1374" text-anchor="middle">访客 → 09：观察，强电保持断开</text>
+    <text class="tiny muted" x="48" y="1428">身份是 22 位 S2-DID：1 位阶级、5 位属性、6 位日期、2 位校验、8 位序列。同一枚身份不能占两格。D 与 A 只坐 01，2–9 不坐数字人。</text>
+    <text class="tiny muted" x="48" y="1456">文件、图片、视频、事务和游戏由第三方实现。本系统的核心只有地址与身份、数字人管理、数字人对智能体的服务。</text>
+  </g>
+</svg>

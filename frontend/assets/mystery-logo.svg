@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="The Galactic Path and Peaks">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12183a"/>
+      <stop offset="0.46" stop-color="#2a1860"/>
+      <stop offset="0.72" stop-color="#6d2b86"/>
+      <stop offset="1" stop-color="#140818"/>
+    </linearGradient>
+    <linearGradient id="needle" x1="220" y1="760" x2="760" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7ee7ff"/>
+      <stop offset="0.45" stop-color="#3b2d78"/>
+      <stop offset="1" stop-color="#d7c6ff"/>
+    </linearGradient>
+    <linearGradient id="road" x1="180" y1="980" x2="860" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3ec5ff"/>
+      <stop offset="0.55" stop-color="#7a7bff"/>
+      <stop offset="1" stop-color="#ff4fd8"/>
+    </linearGradient>
+    <linearGradient id="galaxy" x1="620" y1="80" x2="980" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#d946ef"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#sky)"/>
+  <g fill="#f8fbff">
+    <circle cx="140" cy="120" r="2.2"/>
+    <circle cx="230" cy="210" r="1.4" opacity="0.7"/>
+    <circle cx="310" cy="90" r="1.6"/>
+    <circle cx="470" cy="150" r="1.3" opacity="0.8"/>
+    <circle cx="690" cy="70" r="2"/>
+    <circle cx="820" cy="160" r="1.5" opacity="0.75"/>
+    <circle cx="900" cy="250" r="1.2" opacity="0.6"/>
+    <circle cx="180" cy="300" r="1.3" opacity="0.55"/>
+    <circle cx="760" cy="300" r="1.4" opacity="0.7"/>
+  </g>
+  <g fill="#fff" opacity="0.95">
+    <polygon points="250,160 254,174 268,178 254,182 250,196 246,182 232,178 246,174"/>
+    <polygon points="620,120 623,132 635,135 623,138 620,150 617,138 605,135 617,132"/>
+    <polygon points="860,210 863,220 873,223 863,226 860,236 857,226 847,223 857,220"/>
+  </g>
+  <line x1="150" y1="250" x2="250" y2="210" stroke="#dff6ff" stroke-width="2" opacity="0.85"/>
+  <circle cx="150" cy="250" r="2.4" fill="#fff"/>
+  <path d="M640 70C760 90 820 150 900 250" fill="none" stroke="url(#galaxy)" stroke-width="16" stroke-linecap="round" filter="url(#glow)" opacity="0.9"/>
+  <polygon points="80,620 210,390 340,620" fill="#24315f"/>
+  <polygon points="250,680 430,300 610,690" fill="#1a2450"/>
+  <polygon points="470,700 700,360 900,720" fill="#2a2358"/>
+  <polygon points="700,740 860,500 1024,760 1024,900 640,900" fill="#1a1030"/>
+  <polygon points="0,760 120,620 280,820 0,900" fill="#120c28"/>
+  <polygon points="160,860 360,700 560,980" fill="#100a22"/>
+  <g filter="url(#glow)">
+    <path d="M40 980C220 900 260 820 420 760C560 708 620 760 760 820C900 880 980 760 1040 700" fill="none" stroke="url(#road)" stroke-width="28" stroke-linecap="round"/>
+    <path d="M40 980C220 900 260 820 420 760C560 708 620 760 760 820C900 880 980 760 1040 700" fill="none" stroke="#f5fbff" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+  </g>
+  <g transform="translate(512 500) rotate(-32)">
+    <polygon points="0,-250 46,-20 0,250 -46,-20" fill="url(#needle)"/>
+    <polygon points="0,-150 22,-8 0,150 -22,-8" fill="#1a1038" opacity="0.55"/>
+    <polygon points="-70,0 0,-28 70,0 0,28" fill="#6d4cff" opacity="0.85"/>
+    <circle r="34" fill="#24143f" stroke="#d7c4ff" stroke-width="8"/>
+    <circle r="16" fill="#c084fc"/>
+  </g>
+</svg>

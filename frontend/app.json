@@ -1,0 +1,79 @@
+{
+  "expo": {
+    "name": "Mystery Getaway",
+    "slug": "blindbox-travel",
+    "scheme": "mysterygetaway",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#12162e"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.blindboxtravel.app",
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Mystery Getaway uses your camera so you can leave a real time capsule from the place you're standing.",
+        "NSLocationWhenInUseUsageDescription": "Mystery Getaway uses your location to measure the distance to a mystery and to confirm you are at the spot before you leave a time capsule.",
+        "NSLocalNetworkUsageDescription": "Mystery Getaway uses the local network to reach the travel service on your computer.",
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true
+        }
+      }
+    },
+    "android": {
+      "package": "com.blindboxtravel.app",
+      "usesCleartextTraffic": true,
+      "adaptiveIcon": {
+        "backgroundColor": "#12162e",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Mystery Getaway uses your location to measure the distance to a mystery and to confirm you are at the spot before you leave a time capsule."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Mystery Getaway uses your camera so you can leave a real time capsule from the place you're standing.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      "expo-apple-authentication",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#12162e",
+          "image": "./assets/icon.png",
+          "resizeMode": "contain",
+          "imageWidth": 280
+        }
+      ],
+      "expo-sharing",
+      "expo-web-browser",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "enableSceneSupport": true
+          }
+        }
+      ]
+    ]
+  }
+}

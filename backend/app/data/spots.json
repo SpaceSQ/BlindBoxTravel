@@ -1,0 +1,64 @@
+[
+  {
+    "spot_id": "SP001",
+    "full_name": "Turbid Lake Trail",
+    "blind_name": "T**b** L*k* Tr**l",
+    "province": "Wyoming",
+    "city": "Yellowstone National Park",
+    "location": {"lat": 44.549906, "lng": -110.260925},
+    "tags": [
+      {"name": "国家公园", "type": "strong"},
+      {"name": "湖泊", "type": "strong"},
+      {"name": "地热区", "type": "strong"},
+      {"name": "远离尘嚣", "type": "weak"},
+      {"name": "森林", "type": "weak"},
+      {"name": "秘境", "type": "weak"},
+      {"name": "敬畏", "type": "weak"},
+      {"name": "摄影", "type": "weak"},
+      {"name": "徒步狂热者", "type": "weak"},
+      {"name": "小众", "type": "weak"},
+      {"name": "感受自然", "type": "weak"},
+      {"name": "气候多变", "type": "weak"},
+      {"name": "紫外线强", "type": "weak"}
+    ],
+    "description": "On the east side of Yellowstone Lake, the National Park Service describes a 6.0-mile (9.7 km) there-and-back walk from Nine Mile Trailhead. It follows an old road through forest to a lake the park itself calls rather unique. The water is muddy for a reason. U.S. Geological Survey accounts place the basin among Yellowstone's hydrothermal explosion craters, with the blast dated to about 9,400 years ago, alongside Indian Pond and Mary Bay north of the big lake. Boiling water, steam, mud, and rock were thrown across this shore. The lake is in Park County, Wyoming. The name comes from that muddy water, not from a blue alpine pool.\n\nThis is quiet country rather than a boardwalk. The Nine Mile trailhead page says grizzly and black bears live throughout the park: hike in a group, make noise, and keep bear spray in your hand. Stay 100 yards from bears and wolves, and 25 yards from other animals. Pets are not allowed on the trail. A day hike does not need a camping permit; overnight camping in the backcountry does. The Pelican Valley Trail, listed with this same area, is day use only from 9 a.m. to 7 p.m. because it sits in a bear management area.\n\nThe photograph is a National Park Service image by Jacob W. Frank, taken 21 September 2024 and released to the public domain.",
+    "summary_100w": "A 6-mile out-and-back on the east side of Yellowstone Lake, along an old road to a muddy hydrothermal explosion crater about 9,400 years old. Quiet forest, serious bear country, and weather that swings hard near 7,840 feet.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Turbid_Lake_%2854075009267%29.jpg",
+    "adult_ticket_price": 20,
+    "mock_weather": {
+      "status": "ok",
+      "message": null,
+      "source": "open-meteo",
+      "location_id": null,
+      "location_name": "Turbid Lake",
+      "city_id": null,
+      "city_name": "Yellowstone",
+      "temp_max": "51",
+      "temp_min": "38",
+      "uv_index": "4",
+      "precip_scope": "split",
+      "precip_unit": "in",
+      "day": {
+        "period": "07:00-19:00",
+        "text": "Overcast, light drizzle",
+        "pop": "31",
+        "precip": "0.04",
+        "wind_dir": "SSW 22 mph",
+        "wind_scale": null
+      },
+      "night": {
+        "period": "19:00-07:00",
+        "text": "Rain, then cloudy",
+        "pop": "49",
+        "precip": "0.21",
+        "wind_dir": "SSW",
+        "wind_scale": null
+      },
+      "air": {"aqi": null, "category": null, "city_name": "Yellowstone"},
+      "attributions": ["Open-Meteo forecast for 10 October 2026, America/Denver"]
+    },
+    "events_and_discounts": "Park entrance, from the National Park Service fee page: $35 for one private vehicle and everyone in it, for seven days. Entering on foot, by bicycle, or on skis is $20 per person age 16 and older, which is the price stored here. Children 15 and under are free on that per-person pass. Non-U.S. residents age 16 and older pay an additional $100 per person unless the group is admitted with a qualifying annual pass. The 4 July 2026 backcountry report lists Pelican Valley / this lake area open to stock and does not list a closure. Fire danger that season was High. Read the park's backcountry page the morning you go.",
+    "ai_strategy": "From downtown New York this is a western trip, not a weekend hop: it sits past the 1,000-mile filter and inside the 3,000-mile one. Fly or drive to the park, then take East Entrance Road to Nine Mile Trailhead. The signed walk is 6.0 miles round trip on an old road. If your route enters Pelican Valley, stay inside the 9 a.m. to 7 p.m. day-use window. Carry bear spray, layers, and all your water; there is no food along the walk. For Saturday 10 October 2026 the Open-Meteo forecast at this shore is about 38–51°F, a southwest wind near 22 mph, drizzle in the afternoon and a better chance of rain by evening, with UV around 4. The lake sits near 7,840 feet, so the temperature can drop fast once the sun leaves.",
+    "tag_interpretation": "National park. The walk is inside Yellowstone, reached from Nine Mile Trailhead on the east side of the big lake. Lake. The payoff is a crater lake named for water muddy enough that you cannot see through it. Geothermal field. USGS describes the basin as a hydrothermal explosion crater from about 9,400 years ago, in the same family as Indian Pond and Mary Bay."
+  }
+]
